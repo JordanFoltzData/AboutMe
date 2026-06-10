@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Stories | Jordan Foltz — Data Analyst</title>
+    <meta name="description" content="Data Stories — Jordan Foltz's blog on A/B testing, statistics, and the craft of turning analysis into honest, decision-ready narratives.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="blog.css">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600;700&family=Open+Sans:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <div class="nav-logo">
+                <a href="index.html">Jordan</a>
+            </div>
+            <div class="nav-menu">
+                <a href="index.html#home" class="nav-link-ext">Home</a>
+                <a href="index.html#about" class="nav-link-ext">About</a>
+                <a href="index.html#projects" class="nav-link-ext">Projects</a>
+                <a href="index.html#resume" class="nav-link-ext">Resume</a>
+                <a href="blog.html" class="nav-link-ext" aria-current="page">Blog</a>
+                <a href="index.html#contact" class="nav-link-ext">Contact</a>
+                <a href="brand.html" class="nav-link-brand">My Brand</a>
+                <button class="theme-toggle" id="theme-toggle" aria-label="Toggle dark mode">
+                    <i class="fas fa-moon" aria-hidden="true"></i>
+                </button>
+            </div>
+            <button class="hamburger" aria-label="Toggle navigation menu" aria-expanded="false">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
+        </div>
+    </nav>
+
+    <!-- Blog Hero -->
+    <header class="blog-hero">
+        <div class="container">
+            <p class="blog-eyebrow">The Blog</p>
+            <h1>Data Stories</h1>
+            <p class="blog-hero-sub">Every analysis is a story with a beginning, a tension, and a verdict. These are three of mine — told the way I'd tell them to the room that has to make the call.</p>
+        </div>
+    </header>
+
+    <main class="blog-posts">
+
+        <!-- Post 1 -->
+        <article class="post" id="the-test-that-failed">
+            <header class="post-header">
+                <div class="post-meta">
+                    <span class="blog-category">A/B Testing</span>
+                    <span class="post-date"><i class="far fa-calendar" aria-hidden="true"></i> June 2026</span>
+                    <span class="post-read-time"><i class="far fa-clock" aria-hidden="true"></i> 4 min read</span>
+                </div>
+                <h2>The A/B Test That "Failed" — and Why It Was My Favorite Result</h2>
+            </header>
+            <div class="post-body">
+                <p class="post-lede">Nobody builds a redesign hoping to hear "don't ship it." But sometimes that's exactly what the data says — and saying it clearly is the job.</p>
+                <p>The setup was simple. A software company had rebuilt its help website mobile-first, and the team was proud of it. Visitors on mobile devices were randomly split: half saw the original site, half saw the redesign. After browsing, each rated their satisfaction from 1 to 5. Over three weeks in July, 3,365 responses came in — 1,666 for the original, 1,699 for the new site. Clean groups, nearly identical sizes. A fair fight.</p>
+                <p>At first glance, the redesign was winning. The new site averaged 3.34 against the original's 3.28. If I had stopped there, the story writes itself: <em>new site wins, ship it.</em> A lot of dashboards stop there.</p>
+                <p>But a 0.06-point gap on a 5-point scale is exactly the kind of number that demands suspicion. I ran a two-sample Welch t-test — the variances differed slightly between groups, so the Welch adjustment was the honest choice. The p-value came back at 0.149. For the difference to be believable, I needed it under 0.05. Put plainly: if the two sites were truly identical, a gap this size would show up in roughly 15 out of 100 experiments purely by chance. Cohen's d landed at 0.05 — a negligible effect size. The redesign hadn't moved the experience.</p>
+                <div class="post-callout">
+                    <span class="post-callout-value">p = 0.149</span>
+                    <span class="post-callout-label">A "fail to reject" is not a failure. It's an answer.</span>
+                </div>
+                <p>The distribution told the more interesting story. The new site earned <em>more</em> 5-star ratings (19.1% vs 14.7%) — but also more 2-star ratings, and noticeably fewer 4-stars. Some users loved the redesign. Others were quietly put off by it. The averages canceled out into statistical silence.</p>
+                <p>My recommendation: don't deploy. Users already rated the existing site 3.3 out of 5, and replacing it with something unproven risks disrupting an experience that works — without evidence of a payoff. But I didn't leave the team empty-handed. That cluster of new 5-star ratings was a signal: something in the redesign genuinely delighted a segment of users. Find what that was, build the next iteration around it, and test again.</p>
+                <p>This is why the "failed" test is my favorite in my portfolio. Anyone can present a win. The real trust is earned when the data says <em>not yet</em> and you say it out loud — with a path forward attached.</p>
+            </div>
+            <footer class="post-footer">
+                <a href="Mobile_Site_Survey_AB_Testing_Case_Study.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+                    <i class="fas fa-file-alt" aria-hidden="true"></i> Read the Full Case Study (PDF)
+                </a>
+            </footer>
+        </article>
+
+        <div class="post-divider" aria-hidden="true"></div>
+
+        <!-- Post 2 -->
+        <article class="post" id="small-numbers-big-stories">
+            <header class="post-header">
+                <div class="post-meta">
+                    <span class="blog-category">Statistics</span>
+                    <span class="post-date"><i class="far fa-calendar" aria-hidden="true"></i> June 2026</span>
+                    <span class="post-read-time"><i class="far fa-clock" aria-hidden="true"></i> 4 min read</span>
+                </div>
+                <h2>2.1 Percentage Points: How Small Numbers Tell Big Stories</h2>
+            </header>
+            <div class="post-body">
+                <p class="post-lede">If I told you a new algorithm moved a metric from 14.29% to 16.35%, would you call it a breakthrough? Most rooms wouldn't. Most rooms would be wrong.</p>
+                <p>The question came from a video-feed experiment: could a new serving algorithm (Algorithm B) grow the share of "Engaged Watchers" — users who watch a meaningful amount of video — from a historical baseline of 14% toward a target of 17%? More engaged watchers means more video inventory, which means more ad revenue. The business case was directional and specific, so the test was too: a one-tailed hypothesis, declared <em>before</em> I looked at a single row of data. Lock in the decision rule first, or the data will happily tell you whatever you want to hear.</p>
+                <p>Before touching results, I ran a power analysis. The targeted improvement worked out to a minimum detectable effect of 21.4%, which at 5% significance and 80% power demands roughly 1,800 users per group. The experiment delivered: 1,819 in control, 1,792 in test. This step is unglamorous and routinely skipped — and skipping it is how teams run underpowered tests, see nothing, and wrongly conclude their idea didn't work.</p>
+                <p>The pivot table told the headline: Algorithm A converted 14.29% of its users into Engaged Watchers; Algorithm B converted 16.35%. A two-proportion z-test put the z-statistic at 1.716 and the one-tailed p-value at 0.043 — under the 0.05 bar. The lift was real.</p>
+                <div class="post-callout">
+                    <span class="post-callout-value">+2.1pp = +14.4%</span>
+                    <span class="post-callout-label">Absolute lift looks small. Relative lift tells the story.</span>
+                </div>
+                <p>Here's where storytelling earns its keep. "Two point one percentage points" sounds like rounding error. But framed honestly: that's a 14.4% relative increase in the user behavior that drives video ad inventory — at the scale of a platform with billions of users. Small percentages on enormous denominators are how nine-figure revenue lines move. The same number, told two ways, produces two completely different decisions in the room.</p>
+                <p>My recommendation was to roll out Algorithm B fully, with post-launch monitoring to confirm the lift holds at scale and to watch for side effects on content diversity and session quality. A significant test result is a green light, not a blindfold.</p>
+                <p>The lesson I carry from this one: never let a number speak for itself, because it can't. 2.1 points is a shrug or a headline depending entirely on whether the analyst does the work of translation. That translation — from statistic to stakes — is the actual deliverable.</p>
+            </div>
+            <footer class="post-footer">
+                <a href="Facebook_Engagemnt_Algorithm_AB_Test_Case_Study.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+                    <i class="fas fa-file-alt" aria-hidden="true"></i> Read the Full Case Study (PDF)
+                </a>
+            </footer>
+        </article>
+
+        <div class="post-divider" aria-hidden="true"></div>
+
+        <!-- Post 3 -->
+        <article class="post" id="the-thin-margin">
+            <header class="post-header">
+                <div class="post-meta">
+                    <span class="blog-category">ROI Analysis</span>
+                    <span class="post-date"><i class="far fa-calendar" aria-hidden="true"></i> June 2026</span>
+                    <span class="post-read-time"><i class="far fa-clock" aria-hidden="true"></i> 5 min read</span>
+                </div>
+                <h2>The €15,101 Margin: Telling the Truth About a Thin ROI</h2>
+            </header>
+            <div class="post-body">
+                <p class="post-lede">The flattering version of this analysis was sitting right there: referred users generated €762,072 — twice what non-referred users brought in. The honest version took four more steps.</p>
+                <p>An e-commerce referral program had paid €10 for every user who signed up with a referral code, across Germany, Spain, France, and Italy. Over a 28-day window: 14,329 users, 24,981 orders, €1.13M in revenue. Referred users were 63.8% of the user base and produced 67.3% of the revenue. If you wanted a victory-lap slide, you could stop right there.</p>
+                <p>But "referred users spent a lot" is not the question. The question is: <em>what did the €91,400 in referral payouts buy that we wouldn't have gotten anyway?</em> Those 9,140 people might have shopped regardless. To isolate the campaign's true effect, I built a counterfactual: what would referral users have generated if they behaved exactly like non-referral users?</p>
+                <p>The behavioral comparison surfaced the mechanism first. Referred users placed 16.1% more orders per person (1.836 vs 1.581) — a difference a two-sample t-test confirmed as decisively significant (t = 16.0, p &lt; 0.0001). And crucially, their average order value was virtually identical: €45.42 vs €45.36. The campaign wasn't producing bigger baskets. It was producing <em>repeat customers</em> — the slower, compounding kind of loyalty.</p>
+                <p>The counterfactual math: had those 9,140 users purchased at the non-referral rate, they'd have generated €655,571. They actually generated €762,072. The campaign's incremental revenue — the part that exists only because of the behavior change — was €106,501. Subtract the €91,400 cost, and the true net return is €15,101.</p>
+                <div class="post-callout">
+                    <span class="post-callout-value">16.52% ROI</span>
+                    <span class="post-callout-label">Real, positive — and only €1.65 per user away from zero.</span>
+                </div>
+                <p>A 16.52% return in 28 days is a win, and I reported it as one. But the same model that proved the win also exposed its fragility: the breakeven acquisition cost is about €11.65 per user. If payouts crept from €10 to €12, this campaign flips to a money-loser — and without the counterfactual, nobody would notice, because top-line referral revenue would still look spectacular.</p>
+                <p>So the story I delivered had three parts: the campaign works, the margin is thin, and the upside is bigger than the window — because a 16.1% purchase-frequency advantage, if it persists, compounds into lifetime value far beyond 28 days. Keep the program, hold the line on cost, and measure the cohort again at 90 days.</p>
+                <p>It would have been easy to lead with the doubled revenue and collect the applause. But an analysis that only finds good news isn't analysis — it's marketing wearing a lab coat. The thin margin <em>was</em> the insight.</p>
+            </div>
+            <footer class="post-footer">
+                <a href="Referral_Campaign_Jordan_Foltz.pdf" target="_blank" rel="noopener noreferrer" class="btn btn-outline">
+                    <i class="fas fa-file-alt" aria-hidden="true"></i> Read the Full Case Study (PDF)
+                </a>
+            </footer>
+        </article>
+
+        <!-- CTA -->
+        <section class="blog-cta">
+            <h2>Want to talk data?</h2>
+            <p>If these stories resonate — or you have a dataset with a story waiting to be found — let's connect.</p>
+            <div class="blog-cta-buttons">
+                <a href="index.html#projects" class="btn btn-primary nav-link-ext">
+                    <i class="fas fa-chart-bar" aria-hidden="true"></i> See My Projects
+                </a>
+                <a href="index.html#contact" class="btn btn-outline nav-link-ext">
+                    <i class="fas fa-envelope" aria-hidden="true"></i> Get In Touch
+                </a>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; <span id="footer-year">2026</span> Jordan Foltz. All rights reserved.</p>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
