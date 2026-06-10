@@ -4,7 +4,7 @@ Welcome to my corner of the internet! 🎯
 
 I'm a data analyst who loves turning complex data into clear, actionable insights that drive real business decisions. This website showcases my journey, projects, and passion for all things data.
 
-**Live Site**: [https://journalistjordan.github.io/AboutMe/](https://journalistjordan.github.io/AboutMe/)
+**Live Site**: [https://jordanfoltzdata.com](https://jordanfoltzdata.com)
 
 ## 🚀 What You'll Find Here
 
@@ -50,7 +50,7 @@ To run locally, open `index.html` in a browser or serve the folder with any stat
 I'm always excited to connect with fellow data enthusiasts, potential employers, or anyone interested in collaboration.
 
 - **LinkedIn**: [linkedin.com/in/jordan-foltz](https://linkedin.com/in/jordan-foltz)
-- **GitHub**: [github.com/JournalistJordan](https://github.com/JournalistJordan)
+- **GitHub**: [github.com/JordanFoltzData](https://github.com/JordanFoltzData)
 - **Credly**: [credly.com/users/jordan-foltz](https://www.credly.com/users/jordan-foltz)
 
 ---
