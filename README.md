@@ -1,58 +1,22 @@
-# Jordan Foltz - Personal Website
+# Jordan Foltz — Personal Website
 
-Welcome to my corner of the internet! 🎯
+**Live site:** [jordanfoltzdata.com](https://jordanfoltzdata.com)
 
-I'm a data analyst who loves turning complex data into clear, actionable insights that drive real business decisions. This website showcases my journey, projects, and passion for all things data.
+The personal portfolio of Jordan Foltz, data analyst. The site exists to show — not just claim — how I work with data: real case studies with full PDF reports, video walkthroughs of Tableau dashboards, and a blog that tells the story behind each analysis.
 
-**Live Site**: [https://jordanfoltzdata.com](https://jordanfoltzdata.com)
+## What's Here
 
-## 🚀 What You'll Find Here
+- **Projects** — A/B testing, hypothesis testing, and ROI case studies, each backed by a complete report
+- **Data Stories** — blog posts on the reasoning and honest reporting behind the numbers
+- **Resume** — downloadable in PDF and DOCX
+- **My Brand** — mission, vision, and values as a data professional
 
-### **About Me**
-My story, background, and what makes me tick as a data professional. From entrepreneurship to analytics, I bring a unique perspective to every project.
+## Built With
 
-### **Featured Projects**
-Real-world examples of my work, including:
-- **Case Studies**: A/B testing, hypothesis testing, and ROI analysis — each backed by a full PDF report
-- **Video Presentations**: Tableau dashboards and data visualizations explained in under 5 minutes
+Plain HTML, CSS, and JavaScript — no frameworks, no build step. Hosted on GitHub Pages with a custom domain.
 
-### **Data Stories Blog**
-Narrative write-ups of my analyses — the story behind the statistics, including the test that "failed" and why honest reporting matters.
+## Contact
 
-### **My Brand**
-A dedicated page covering my mission, vision, and values as a data professional.
-
-### **Professional Badges & Certifications**
-- **CompTIA Data+ Certified**
-- **ISC2 CC — Certified in Cybersecurity**
-- **Business Analytics Science Certificate**
-- Verify all credentials on my [Credly profile](https://www.credly.com/users/jordan-foltz)
-
-## 🎨 Website Features
-
-- **Clean, Modern Design**: Professional green, gold, and black color scheme
-- **Responsive Layout**: Looks great on any device
-- **Dark/Light Mode**: Toggle between themes for comfortable viewing
-- **Project Filtering**: Browse by Case Studies or Video Presentations
-- **Resume Downloads**: PDF and DOCX formats
-- **Working Contact Form**: Powered by Formspree
-
-## 🛠️ Tech Stack
-
-- **Frontend**: HTML5, CSS3, JavaScript (no frameworks, no build step)
-- **Icons**: Font Awesome
-- **Fonts**: Google Fonts (Montserrat & Open Sans)
-
-To run locally, open `index.html` in a browser or serve the folder with any static file server (e.g., the VS Code Live Server extension).
-
-## 📧 Let's Connect!
-
-I'm always excited to connect with fellow data enthusiasts, potential employers, or anyone interested in collaboration.
-
-- **LinkedIn**: [linkedin.com/in/jordan-foltz](https://linkedin.com/in/jordan-foltz)
-- **GitHub**: [github.com/JordanFoltzData](https://github.com/JordanFoltzData)
-- **Credly**: [credly.com/users/jordan-foltz](https://www.credly.com/users/jordan-foltz)
-
----
-
-*Built with passion for data and dedication to clear communication. Let's turn your data into insights! 📊✨*
+- [LinkedIn](https://linkedin.com/in/jordan-foltz)
+- [Credly](https://www.credly.com/users/jordan-foltz)
+- jordy3338@gmail.com
