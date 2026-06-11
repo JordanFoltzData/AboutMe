@@ -53,7 +53,7 @@
             </div>
             <p class="brand-eyebrow">Personal Brand</p>
             <h1>Jordan Foltz</h1>
-            <p class="hero-subtitle">Data Analyst &middot; Storyteller &middot; Problem Solver</p>
+            <p class="hero-subtitle" data-typing-texts="Data Analyst|Storyteller|Problem Solver">Data Analyst &middot; Storyteller &middot; Problem Solver</p>
             <p class="hero-intro">Behind every dataset is a story worth telling — and a decision worth getting right. This page is the "why" behind my work: what drives me, where I'm headed, and the standards I hold myself to.</p>
         </div>
     </section>
@@ -85,37 +85,64 @@
             <div class="values-grid">
 
                 <div class="value-card">
-                    <i class="fas fa-balance-scale value-icon" aria-hidden="true"></i>
+                    <svg class="value-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+                        <path pathLength="1" d="M24 8 V38"/>
+                        <path pathLength="1" d="M16 42 H32"/>
+                        <path pathLength="1" d="M8 14 H40"/>
+                        <path pathLength="1" d="M3 26 L8 14 L13 26"/>
+                        <path pathLength="1" d="M3 26 A5.5 5.5 0 0 0 13 26"/>
+                        <path pathLength="1" d="M35 26 L40 14 L45 26"/>
+                        <path pathLength="1" d="M35 26 A5.5 5.5 0 0 0 45 26"/>
+                    </svg>
                     <h3>Truth</h3>
                     <p>Every analysis I produce is only as valuable as the confidence people can place in it. I hold myself to rigorous standards of accuracy, transparency, and intellectual honesty, because decisions built on flawed data carry real consequences.</p>
                 </div>
 
                 <div class="value-card">
-                    <i class="fas fa-microscope value-icon" aria-hidden="true"></i>
+                    <svg class="value-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+                        <circle pathLength="1" cx="21" cy="19" r="11"/>
+                        <path pathLength="1" d="M29 27 L40 38"/>
+                        <path pathLength="1" d="M16 19 A5 5 0 0 1 21 14"/>
+                    </svg>
                     <h3>Curiosity</h3>
                     <p>I don't stop at surface answers. I ask why, dig deeper, and follow the data wherever it leads, even when findings are inconvenient or unexpected. Curiosity is what separates analysis from discovery.</p>
                 </div>
 
                 <div class="value-card">
-                    <i class="fas fa-chart-line value-icon" aria-hidden="true"></i>
+                    <svg class="value-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+                        <path pathLength="1" d="M6 6 V42 H42"/>
+                        <path pathLength="1" d="M12 34 L20 26 L26 30 L38 16"/>
+                        <path pathLength="1" d="M31 16 H38 V23"/>
+                    </svg>
                     <h3>Growth</h3>
                     <p>Learning is a permanent part of how I operate, not a phase I passed through. Whether it's a new certification, a new language, or a new domain, I'm always building toward a more capable version of myself.</p>
                 </div>
 
                 <div class="value-card">
-                    <i class="fas fa-tachometer-alt value-icon" aria-hidden="true"></i>
+                    <svg class="value-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+                        <path pathLength="1" d="M6 36 A18 18 0 0 1 42 36"/>
+                        <path pathLength="1" d="M24 36 L33 24"/>
+                        <circle pathLength="1" cx="24" cy="36" r="2.5"/>
+                    </svg>
                     <h3>Efficiency</h3>
                     <p>Good work shouldn't require unnecessary friction. I look for ways to streamline, automate, and simplify — not to cut corners, but to free up time and energy for work that actually matters.</p>
                 </div>
 
                 <div class="value-card">
-                    <i class="fas fa-award value-icon" aria-hidden="true"></i>
+                    <svg class="value-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+                        <circle pathLength="1" cx="24" cy="17" r="11"/>
+                        <path pathLength="1" d="M17 26 L13 43 L24 37 L35 43 L31 26"/>
+                    </svg>
                     <h3>Excellence</h3>
                     <p>I take pride in the quality of what I put out. From documentation to design to the logic behind a formula, details matter. If my name is on it, it should be worth standing behind.</p>
                 </div>
 
                 <div class="value-card">
-                    <i class="fas fa-lightbulb value-icon" aria-hidden="true"></i>
+                    <svg class="value-icon" viewBox="0 0 48 48" aria-hidden="true" focusable="false">
+                        <path pathLength="1" d="M17 29 A12 12 0 1 1 31 29 C29 31 28 33 28 36 H20 C20 33 19 31 17 29 Z"/>
+                        <path pathLength="1" d="M20 40 H28"/>
+                        <path pathLength="1" d="M22 44 H26"/>
+                    </svg>
                     <h3>Innovation</h3>
                     <p>I bring an entrepreneurial lens to analytical work. I'm not just looking for what's been done before but for a smarter approach, a better tool, a solution that didn't exist yet.</p>
                 </div>
@@ -240,6 +267,25 @@
                 clearTimeout(resizeTimer);
                 resizeTimer = setTimeout(() => { resize(); createNodes(); }, 200);
             });
+        })();
+
+        // Draw value icons when their cards scroll into view
+        (function () {
+            const cards = document.querySelectorAll('.value-card');
+            if (!cards.length) return;
+            if (!('IntersectionObserver' in window)) {
+                cards.forEach(card => card.classList.add('drawn'));
+                return;
+            }
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('drawn');
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { threshold: 0.3 });
+            cards.forEach(card => observer.observe(card));
         })();
     </script>
 </body>

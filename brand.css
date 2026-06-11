@@ -222,7 +222,8 @@
 }
 
 .value-icon {
-    font-size: 2rem;
+    width: 44px;
+    height: 44px;
     color: var(--secondary-green);
     margin-bottom: 1rem;
     transition: all 0.3s ease;
@@ -233,6 +234,43 @@
 .value-card:hover .value-icon {
     color: var(--accent-gold);
     transform: scale(1.1);
+}
+
+/* Self-drawing icon strokes — drawn when the card scrolls into view (.drawn) */
+.value-icon path,
+.value-icon circle {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    transition: stroke-dashoffset 1.1s ease-out 0.15s;
+}
+
+.value-card.drawn .value-icon path,
+.value-card.drawn .value-icon circle {
+    stroke-dashoffset: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .value-icon path,
+    .value-icon circle {
+        transition: none;
+        stroke-dashoffset: 0;
+    }
+
+    .brand-eyebrow,
+    .brand-hero h1,
+    .brand-hero .hero-subtitle,
+    .brand-hero .hero-intro,
+    .brand-cta h2,
+    .brand-cta p,
+    .brand-cta-buttons {
+        animation: none;
+        opacity: 1;
+    }
 }
 
 .value-card h3 {

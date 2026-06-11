@@ -76,7 +76,7 @@ AboutMe/
 | `NavbarManager` | Navbar background change on scroll |
 | `EnhancedScrollAnimations` | Fade-in animations via `IntersectionObserver` |
 | `ContactForm` | Form validation and live submission via Formspree |
-| `TypingAnimation` | Cycling typewriter text in hero subtitle |
+| `TypingAnimation` | Cycling typewriter text in hero subtitle; override phrases per page with `data-typing-texts="One|Two|Three"` on `.hero-subtitle` (used on brand.html) |
 | `TimelineDraw` | Adds `.drawn` to `.timeline` on scroll — CSS then draws the line and pops the dots |
 | `ProjectFilter` | Filter buttons show/hide project cards by category |
 | `StatsCounter` | Animates hero stat numbers counting up |

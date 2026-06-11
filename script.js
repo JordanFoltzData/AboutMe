@@ -248,10 +248,12 @@ class ContactForm {
 }
 
 // Typing Animation for Hero Section
+// Override the cycled phrases per page with data-typing-texts="One|Two|Three"
 class TypingAnimation {
     constructor() {
         this.element = document.querySelector('.hero-subtitle');
-        this.texts = [
+        const custom = this.element && this.element.dataset.typingTexts;
+        this.texts = custom ? custom.split('|') : [
             'Data Analyst & Insights Specialist',
             'Python Programming Associate',
             'Data Visualization Specialist',
