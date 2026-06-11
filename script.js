@@ -248,10 +248,12 @@ class ContactForm {
 }
 
 // Typing Animation for Hero Section
+// Override the cycled phrases per page with data-typing-texts="One|Two|Three"
 class TypingAnimation {
     constructor() {
         this.element = document.querySelector('.hero-subtitle');
-        this.texts = [
+        const custom = this.element && this.element.dataset.typingTexts;
+        this.texts = custom ? custom.split('|') : [
             'Data Analyst & Insights Specialist',
             'Python Programming Associate',
             'Data Visualization Specialist',
@@ -296,24 +298,27 @@ class TypingAnimation {
     }
 }
 
-// Parallax Effect for Hero Section
-class ParallaxEffect {
+// Scroll-triggered self-drawing career timeline
+class TimelineDraw {
     constructor() {
-        this.hero = document.querySelector('.hero');
+        this.timeline = document.querySelector('.timeline');
         this.init();
     }
 
     init() {
-        window.addEventListener('scroll', () => this.updateParallax());
-    }
-
-    updateParallax() {
-        const scrolled = window.pageYOffset;
-        const rate = scrolled * -0.5;
-        
-        if (this.hero) {
-            this.hero.style.transform = `translateY(${rate}px)`;
-        }
+        if (!this.timeline) return;
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        this.timeline.classList.add('drawn');
+                        observer.unobserve(this.timeline);
+                    }
+                });
+            },
+            { threshold: 0.25 }
+        );
+        observer.observe(this.timeline);
     }
 }
 
@@ -355,43 +360,6 @@ class ProjectFilter {
                     card.classList.add('hidden');
                 }, 300);
             }
-        });
-    }
-}
-
-// Skills Progress Animation
-class SkillsAnimation {
-    constructor() {
-        this.skillBars = document.querySelectorAll('.skill-progress');
-        this.animated = false;
-        this.init();
-    }
-
-    init() {
-        // Observe skills section for animation
-        const skillsSection = document.querySelector('.skills-section');
-        if (skillsSection) {
-            const observer = new IntersectionObserver(
-                (entries) => {
-                    entries.forEach(entry => {
-                        if (entry.isIntersecting && !this.animated) {
-                            this.animateSkills();
-                            this.animated = true;
-                        }
-                    });
-                },
-                { threshold: 0.3 }
-            );
-            observer.observe(skillsSection);
-        }
-    }
-
-    animateSkills() {
-        this.skillBars.forEach(bar => {
-            const progress = bar.getAttribute('data-progress');
-            setTimeout(() => {
-                bar.style.width = `${progress}%`;
-            }, 200);
         });
     }
 }
@@ -517,64 +485,6 @@ class EnhancedProjectInteractions {
     }
 }
 
-// Resume Download Tracking
-class ResumeTracker {
-    constructor() {
-        this.resumeLinks = document.querySelectorAll('.resume-card a');
-        this.init();
-    }
-
-    init() {
-        this.resumeLinks.forEach(link => {
-            link.addEventListener('click', (e) => this.handleDownload(e, link));
-        });
-    }
-
-    handleDownload(e, link) {
-        const format = link.textContent.includes('PDF') ? 'PDF' : 
-                      link.textContent.includes('DOCX') ? 'DOCX' : 'Online';
-        
-        // Show loading state
-        const originalText = link.innerHTML;
-        link.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Processing...';
-        link.style.pointerEvents = 'none';
-        
-        // Simulate processing
-        setTimeout(() => {
-            link.innerHTML = originalText;
-            link.style.pointerEvents = 'auto';
-            
-            // Show success message
-            this.showSuccessMessage(format);
-        }, 1000);
-    }
-
-    showSuccessMessage(format) {
-        const message = document.createElement('div');
-        message.className = 'resume-success';
-        message.textContent = `${format} ${format === 'Online' ? 'opened' : 'downloaded'} successfully!`;
-        message.style.cssText = `
-            position: fixed;
-            top: 20px;
-            right: 20px;
-            background: var(--success-green);
-            color: white;
-            padding: 1rem 1.5rem;
-            border-radius: 8px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
-            z-index: 10000;
-            animation: slideIn 0.3s ease;
-        `;
-        
-        document.body.appendChild(message);
-        
-        setTimeout(() => {
-            message.style.animation = 'slideOut 0.3s ease';
-            setTimeout(() => message.remove(), 300);
-        }, 3000);
-    }
-}
-
 // Enhanced Scroll Animations
 class EnhancedScrollAnimations {
     constructor() {
@@ -625,28 +535,6 @@ style.textContent = `
             opacity: 0;
         }
     }
-    
-    @keyframes slideIn {
-        from {
-            transform: translateX(100%);
-            opacity: 0;
-        }
-        to {
-            transform: translateX(0);
-            opacity: 1;
-        }
-    }
-    
-    @keyframes slideOut {
-        from {
-            transform: translateX(0);
-            opacity: 1;
-        }
-        to {
-            transform: translateX(100%);
-            opacity: 0;
-        }
-    }
 `;
 document.head.appendChild(style);
 
@@ -659,64 +547,12 @@ document.addEventListener('DOMContentLoaded', () => {
     new NavbarManager();
     new ContactForm();
     new TypingAnimation();
-    new ParallaxEffect();
+    new TimelineDraw();
     new ProjectFilter();
-    new SkillsAnimation();
     new StatsCounter();
     new EnhancedProjectInteractions();
-    new ResumeTracker();
 
     // Dynamic footer year
     const footerYear = document.getElementById('footer-year');
     if (footerYear) footerYear.textContent = new Date().getFullYear();
-});
-
-// Add loading animation
-window.addEventListener('load', () => {
-    const loader = document.createElement('div');
-    loader.className = 'page-loader';
-    loader.style.cssText = `
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: var(--bg-primary);
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        z-index: 9999;
-        transition: opacity 0.5s ease;
-    `;
-    
-    const spinner = document.createElement('div');
-    spinner.style.cssText = `
-        width: 50px;
-        height: 50px;
-        border: 3px solid var(--border-color);
-        border-top: 3px solid var(--accent-gold);
-        border-radius: 50%;
-        animation: spin 1s linear infinite;
-    `;
-    
-    // Add spin animation
-    const style = document.createElement('style');
-    style.textContent = `
-        @keyframes spin {
-            0% { transform: rotate(0deg); }
-            100% { transform: rotate(360deg); }
-        }
-    `;
-    document.head.appendChild(style);
-    
-    loader.appendChild(spinner);
-    document.body.appendChild(loader);
-    
-    // Remove loader after a short delay
-    setTimeout(() => {
-        loader.style.opacity = '0';
-        setTimeout(() => {
-            loader.remove();
-        }, 500);
-    }, 1000);
 });

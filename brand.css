@@ -95,7 +95,7 @@
     font-size: 1.15rem;
     margin-bottom: 1.25rem;
     font-family: var(--font-secondary);
-    color: #000000;
+    color: var(--pure-white);
     opacity: 0;
     animation: fadeInUp 0.8s ease forwards;
     animation-delay: 0.6s;
@@ -153,105 +153,32 @@
     border-radius: 2px;
 }
 
-/* ---- Mission ---- */
-.mission-content {
-    max-width: 720px;
-    margin: 0 auto;
-    text-align: center;
-}
-
-.mission-content p {
-    font-size: 1.2rem;
-    line-height: 1.85;
-    color: var(--text-primary);
-    font-family: var(--font-secondary);
-    font-style: italic;
-    position: relative;
-    padding-top: 1rem;
-}
-
-.mission-content p::before {
-    content: '\201C';
-    display: block;
-    font-size: 5rem;
-    line-height: 1;
-    color: var(--accent-gold);
-    opacity: 0.45;
-    font-family: Georgia, serif;
-    margin-bottom: -0.5rem;
-}
-
-.mission-content p::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 3px;
-    background: var(--accent-gold);
-    margin: 1.25rem auto 0;
-    border-radius: 2px;
-}
-
-.mission-quote {
-    max-width: 720px;
-    margin: 0 auto;
-    font-size: 1.2rem;
-    line-height: 1.85;
-    padding: 1.5rem 2rem;
-    color: var(--text-primary);
-    font-family: var(--font-secondary);
-    font-style: italic;
-    text-align: center;
-    position: relative;
-}
-
-.mission-quote::before {
-    content: '\201C';
-    display: block;
-    font-size: 5rem;
-    line-height: 1;
-    color: var(--accent-gold);
-    opacity: 0.45;
-    font-family: Georgia, serif;
-    margin-bottom: -0.5rem;
-}
-
-.mission-quote::after {
-    content: '';
-    display: block;
-    width: 60px;
-    height: 3px;
-    background: var(--accent-gold);
-    margin: 1.25rem auto 0;
-    border-radius: 2px;
-}
-
-.mission-sub {
-    max-width: 600px;
-    margin: 1.75rem auto 0;
-    text-align: center;
-    color: var(--text-secondary);
-    font-size: 0.95rem;
-    line-height: 1.7;
-    font-family: var(--font-secondary);
-}
-
-/* ---- Vision ---- */
+/* ---- Mission & Vision (shared typography) ---- */
+.mission-content,
 .vision-content {
-    max-width: 800px;
+    max-width: 720px;
     margin: 0 auto;
     text-align: center;
 }
 
+.mission-content p,
 .vision-content p {
-    font-size: 1.05rem;
-    line-height: 1.8;
+    font-size: 1.2rem;
+    line-height: 1.85;
     color: var(--text-primary);
     font-family: var(--font-secondary);
-    margin-bottom: 1rem;
+    font-style: italic;
 }
 
-.vision-content p:last-child {
-    margin-bottom: 0;
+.mission-content p::after,
+.vision-content p::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 3px;
+    background: var(--accent-gold);
+    margin: 1.25rem auto 0;
+    border-radius: 2px;
 }
 
 /* ---- Values ---- */
@@ -295,7 +222,8 @@
 }
 
 .value-icon {
-    font-size: 2rem;
+    width: 44px;
+    height: 44px;
     color: var(--secondary-green);
     margin-bottom: 1rem;
     transition: all 0.3s ease;
@@ -306,6 +234,43 @@
 .value-card:hover .value-icon {
     color: var(--accent-gold);
     transform: scale(1.1);
+}
+
+/* Self-drawing icon strokes — drawn when the card scrolls into view (.drawn) */
+.value-icon path,
+.value-icon circle {
+    fill: none;
+    stroke: currentColor;
+    stroke-width: 2.6;
+    stroke-linecap: round;
+    stroke-linejoin: round;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    transition: stroke-dashoffset 1.1s ease-out 0.15s;
+}
+
+.value-card.drawn .value-icon path,
+.value-card.drawn .value-icon circle {
+    stroke-dashoffset: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .value-icon path,
+    .value-icon circle {
+        transition: none;
+        stroke-dashoffset: 0;
+    }
+
+    .brand-eyebrow,
+    .brand-hero h1,
+    .brand-hero .hero-subtitle,
+    .brand-hero .hero-intro,
+    .brand-cta h2,
+    .brand-cta p,
+    .brand-cta-buttons {
+        animation: none;
+        opacity: 1;
+    }
 }
 
 .value-card h3 {
@@ -429,7 +394,7 @@ html {
     scroll-behavior: smooth;
 }
 
-/* ---- Enhanced Mobile Experience ---- */
+/* ---- Responsive ---- */
 @media (max-width: 768px) {
     .brand-hero {
         padding: 90px 0 50px;
@@ -448,27 +413,18 @@ html {
         padding: 0 1rem;
     }
 
-    .vision-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
+    .mission-content,
     .vision-content {
         padding: 0 1rem;
     }
 
-    .mission-quote {
+    .mission-content p,
+    .vision-content p {
         font-size: 1.05rem;
-        padding-left: 1.25rem;
-        margin: 0 1rem;
     }
 
     .values-grid {
         grid-template-columns: 1fr;
-    }
-
-    .vision-stats {
-        grid-template-columns: 1fr 1fr;
     }
 
     .brand-cta-buttons {
@@ -480,53 +436,5 @@ html {
     .brand-cta-buttons .btn {
         width: 100%;
         max-width: 280px;
-    }
-}
-
-/* ---- Responsive ---- */
-@media (max-width: 768px) {
-    .brand-hero {
-        padding: 90px 0 50px;
-    }
-
-    .brand-hero h1 {
-        font-size: 2rem;
-    }
-
-    .brand-hero .hero-subtitle {
-        font-size: 1rem;
-    }
-
-    .vision-grid {
-        grid-template-columns: 1fr;
-        gap: 2rem;
-    }
-
-    .mission-quote {
-        font-size: 1.05rem;
-        padding-left: 1.25rem;
-    }
-
-    .values-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .vision-stats {
-        grid-template-columns: 1fr 1fr;
-    }
-}
-
-@media (max-width: 480px) {
-    .vision-stats {
-        grid-template-columns: 1fr;
-    }
-
-    .values-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .brand-cta-buttons {
-        flex-direction: column;
-        align-items: center;
     }
 }
