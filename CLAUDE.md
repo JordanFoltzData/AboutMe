@@ -77,12 +77,14 @@ AboutMe/
 | `EnhancedScrollAnimations` | Fade-in animations via `IntersectionObserver` |
 | `ContactForm` | Form validation and live submission via Formspree |
 | `TypingAnimation` | Cycling typewriter text in hero subtitle |
-| `ParallaxEffect` | Hero section parallax on scroll |
+| `TimelineDraw` | Adds `.drawn` to `.timeline` on scroll — CSS then draws the line and pops the dots |
 | `ProjectFilter` | Filter buttons show/hide project cards by category |
 | `StatsCounter` | Animates hero stat numbers counting up |
 | `EnhancedProjectInteractions` | Hover effects + ripple click effect on project cards |
 
-Removed (do not reintroduce): `SkillsAnimation` (skill percentage bars were replaced with descriptive lists), `ResumeTracker` (faked a download spinner/success toast), and the artificial 1-second page loader on `window.load`.
+Removed (do not reintroduce): `SkillsAnimation` (skill percentage bars were replaced with descriptive lists), `ResumeTracker` (faked a download spinner/success toast), `ParallaxEffect` (janky whole-hero transform), the floating hero cards, the radial-gradient `.hero-pattern`, and the artificial 1-second page loader on `window.load`.
+
+**Hero signature animation**: the hero background contains an inline SVG (`.hero-chart`) — a line chart that draws itself on load (CSS `stroke-dashoffset` via `pathLength="1"`, staggered `.chart-dot` pop-ins). All animation timing lives in `style.css`; both it and the timeline draw respect `prefers-reduced-motion` (block at the end of `style.css`).
 
 ---
 

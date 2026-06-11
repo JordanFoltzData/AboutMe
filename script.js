@@ -296,24 +296,27 @@ class TypingAnimation {
     }
 }
 
-// Parallax Effect for Hero Section
-class ParallaxEffect {
+// Scroll-triggered self-drawing career timeline
+class TimelineDraw {
     constructor() {
-        this.hero = document.querySelector('.hero');
+        this.timeline = document.querySelector('.timeline');
         this.init();
     }
 
     init() {
-        window.addEventListener('scroll', () => this.updateParallax());
-    }
-
-    updateParallax() {
-        const scrolled = window.pageYOffset;
-        const rate = scrolled * -0.5;
-        
-        if (this.hero) {
-            this.hero.style.transform = `translateY(${rate}px)`;
-        }
+        if (!this.timeline) return;
+        const observer = new IntersectionObserver(
+            (entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        this.timeline.classList.add('drawn');
+                        observer.unobserve(this.timeline);
+                    }
+                });
+            },
+            { threshold: 0.25 }
+        );
+        observer.observe(this.timeline);
     }
 }
 
@@ -542,7 +545,7 @@ document.addEventListener('DOMContentLoaded', () => {
     new NavbarManager();
     new ContactForm();
     new TypingAnimation();
-    new ParallaxEffect();
+    new TimelineDraw();
     new ProjectFilter();
     new StatsCounter();
     new EnhancedProjectInteractions();
