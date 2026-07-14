@@ -502,7 +502,7 @@ class EnhancedScrollAnimations {
         );
 
         const animatedElements = document.querySelectorAll(
-            '.hero-content, .section-title, .about-content, .project-card, .blog-card, .contact-content, .skill-category, .resume-card, .achievement-item, .timeline-item'
+            '.hero-content, .section-title, .about-content, .project-card, .contact-content, .skill-category, .resume-card, .achievement-item, .timeline-item'
         );
 
         animatedElements.forEach(el => {

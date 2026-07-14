@@ -4,11 +4,10 @@
 
 This is a **static personal portfolio website** for Jordan Foltz, a data analyst. It is a single-page application (SPA) built with vanilla HTML5, CSS3, and JavaScript — no build tools, no frameworks, no package manager.
 
-**Live sections**: Home (hero), About, Resume, Projects, Blog (preview cards), Contact
+**Live sections**: Home (hero), About, Resume, Projects, Contact
 
 **Additional pages**:
 - `brand.html` — Personal Brand (Mission, Vision, Values)
-- `blog.html` — Data Stories blog (three full narrative posts, each grounded in a case-study PDF)
 
 ---
 
@@ -18,10 +17,8 @@ This is a **static personal portfolio website** for Jordan Foltz, a data analyst
 AboutMe/
 ├── index.html                                    # Main portfolio — entire single-page structure
 ├── brand.html                                    # Personal brand page (Mission, Vision, Values)
-├── blog.html                                     # Data Stories blog page (three full posts)
 ├── style.css                                     # All styles, theming, and responsive CSS (shared)
 ├── brand.css                                     # Brand-page-specific layout styles
-├── blog.css                                      # Blog-page-specific layout styles
 ├── script.js                                     # All JavaScript interactivity (ES6 classes)
 ├── README.md                                     # User-facing project documentation
 ├── CLAUDE.md                                     # This file
@@ -41,7 +38,7 @@ AboutMe/
 
 ### HTML (`index.html`)
 - Single file, semantic HTML5
-- Sections use `id` attributes for anchor navigation: `#home`, `#about`, `#projects`, `#resume`, `#blog`, `#contact`
+- Sections use `id` attributes for anchor navigation: `#home`, `#about`, `#projects`, `#resume`, `#contact`
 - External dependencies loaded via CDN (no local copies):
   - **Font Awesome 6.0.0** — icons (`cdnjs.cloudflare.com`)
   - **Google Fonts** — Montserrat + Open Sans
@@ -174,7 +171,6 @@ npx http-server .
 - [ ] Mobile hamburger menu opens/closes
 - [ ] Smooth scroll navigation works
 - [ ] Project filter buttons show/hide correct cards
-- [ ] Blog preview cards on index link to the right posts on blog.html
 - [ ] Contact form validates and shows success/error messages
 - [ ] Page loads without console errors
 

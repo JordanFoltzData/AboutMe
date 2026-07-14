@@ -1482,90 +1482,6 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--primary-green);
 }
 
-/* Blog Section */
-.blog {
-    padding: var(--section-padding);
-    background: var(--bg-secondary);
-}
-
-.blog-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-    gap: 2rem;
-}
-
-.blog-card {
-    background: var(--card-bg);
-    border-radius: var(--border-radius);
-    overflow: hidden;
-    border: 1px solid var(--border-color);
-    transition: all var(--transition-fast);
-}
-
-.blog-card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
-}
-
-.blog-image {
-    height: 150px;
-    background: linear-gradient(135deg, var(--accent-gold), var(--secondary-green));
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: var(--pure-white);
-    font-size: 2.5rem;
-}
-
-.blog-content {
-    padding: 2rem;
-}
-
-.blog-meta {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 1rem;
-    font-size: 0.9rem;
-}
-
-.blog-date {
-    color: var(--text-secondary);
-}
-
-.blog-category {
-    background: var(--light-gold);
-    color: var(--primary-green);
-    padding: 0.25rem 0.75rem;
-    border-radius: 20px;
-    font-weight: 600;
-}
-
-.blog-content h3 {
-    color: var(--primary-green);
-    margin-bottom: 1rem;
-    font-size: 1.2rem;
-}
-
-.blog-content p {
-    color: var(--text-secondary);
-    margin-bottom: 1.5rem;
-    line-height: 1.6;
-}
-
-.read-more {
-    color: var(--accent-gold);
-    text-decoration: none;
-    font-weight: 600;
-    transition: color var(--transition-fast);
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-}
-
-.read-more:hover {
-    color: var(--primary-green);
-}
-
 /* Contact Section */
 .contact {
     padding: var(--section-padding);
@@ -2088,37 +2004,7 @@ h1, h2, h3, h4, h5, h6 {
     .project-link {
         font-size: 0.8rem;
     }
-    
-    .blog-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .blog-card {
-        margin-bottom: 1rem;
-    }
-    
-    .blog-image {
-        height: 120px;
-        font-size: 2rem;
-    }
-    
-    .blog-content {
-        padding: 1.5rem;
-    }
-    
-    .blog-content h3 {
-        font-size: 1.1rem;
-    }
-    
-    .blog-content p {
-        font-size: 0.9rem;
-        margin-bottom: 1rem;
-    }
-    
-    .blog-meta {
-        font-size: 0.8rem;
-    }
-    
+
     .contact-form {
         padding: 1.5rem;
     }
