@@ -4,29 +4,26 @@
       <stop offset="0" stop-color="#3a6420"/>
       <stop offset="1" stop-color="#2d5016"/>
     </linearGradient>
-    <linearGradient id="fill" x1="0" y1="0" x2="0" y2="1">
-      <stop offset="0" stop-color="#f4e4a6" stop-opacity="0.55"/>
-      <stop offset="1" stop-color="#d4af37" stop-opacity="0.10"/>
+    <linearGradient id="bar" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#f4e4a6"/>
+      <stop offset="1" stop-color="#d4af37"/>
     </linearGradient>
   </defs>
 
   <!-- Rounded-square brand tile -->
   <rect x="0" y="0" width="32" height="32" rx="7" fill="url(#bg)"/>
 
-  <!-- Area under the normal distribution curve -->
-  <path d="M4 25 C8 25 9.5 24 12 18 C14 12.5 14.8 7.5 16 7.5 C17.2 7.5 18 12.5 20 18 C22.5 24 24 25 28 25 Z"
-        fill="url(#fill)"/>
+  <!-- Normal distribution rendered as a histogram -->
+  <g fill="url(#bar)">
+    <rect x="4.6"  y="22.8" width="2.4" height="2.2"  rx="0.8"/>
+    <rect x="8.0"  y="18.5" width="2.4" height="6.5"  rx="0.8"/>
+    <rect x="11.4" y="11.0" width="2.4" height="14.0" rx="0.8"/>
+    <rect x="14.8" y="7.0"  width="2.4" height="18.0" rx="0.8"/>
+    <rect x="18.2" y="11.0" width="2.4" height="14.0" rx="0.8"/>
+    <rect x="21.6" y="18.5" width="2.4" height="6.5"  rx="0.8"/>
+    <rect x="25.0" y="22.8" width="2.4" height="2.2"  rx="0.8"/>
+  </g>
 
   <!-- Baseline axis -->
-  <line x1="3.5" y1="25" x2="28.5" y2="25" stroke="#d4af37" stroke-width="1.1" stroke-linecap="round" opacity="0.75"/>
-
-  <!-- Mean (center) reference line -->
-  <line x1="16" y1="8.5" x2="16" y2="25" stroke="#d4af37" stroke-width="0.9" stroke-dasharray="1.6 1.6" opacity="0.55"/>
-
-  <!-- Bell curve -->
-  <path d="M4 25 C8 25 9.5 24 12 18 C14 12.5 14.8 7.5 16 7.5 C17.2 7.5 18 12.5 20 18 C22.5 24 24 25 28 25"
-        fill="none" stroke="#f4e4a6" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-
-  <!-- Peak marker -->
-  <circle cx="16" cy="7.5" r="1.7" fill="#f4e4a6"/>
+  <line x1="3.5" y1="25" x2="28.5" y2="25" stroke="#d4af37" stroke-width="1.1" stroke-linecap="round" opacity="0.85"/>
 </svg>
