@@ -202,7 +202,7 @@ This is a static site. Deploy by uploading all files (except `.git/`) to:
 
 - `Headshot Professional Resized.jpg` is ~1 MB — compress to ~100 KB (WebP or optimized JPG)
 - Asset filenames with spaces (`Headshot Professional Resized.jpg`, `Jordan Foltz Data Analyst Resume.docx`) should be renamed to underscores; `Engagemnt` typo in the Facebook PDF filename
-- No favicon, Open Graph/Twitter card tags, or JSON-LD structured data yet
+- SVG favicon added (`favicon.svg` — normal-distribution bell curve in brand green/gold, linked from `index.html` + `brand.html`). Open Graph/Twitter card tags and JSON-LD structured data still not added
 - YouTube iframes load eagerly — add `loading="lazy"`
 - `prefers-reduced-motion` and `prefers-color-scheme` are not respected
 - The `@keyframes ripple` animation is injected via JS `createElement('style')` — consider moving to `style.css`
